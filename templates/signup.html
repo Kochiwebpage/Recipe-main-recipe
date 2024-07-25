@@ -1,0 +1,71 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+
+<div id="signup-box" class="signup">
+  <div class="left sign">
+    <h1>Sign Up</h1>
+    <form action="signup" method="post" style="margin:10px 0;">
+      {% csrf_token %}
+      <div class="input_field">
+        <span><i aria-hidden="true" class="fa fa-user"></i></span>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Username" required>
+      </div>
+      <div class="input_field">
+        <span><i aria-hidden="true" class="fa fa-user"></i></span>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+      </div>
+      <div class="input_field">
+        <span><i aria-hidden="true" class="fa fa-user"></i></span>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+      </div>
+      <div class="input_field radio_option" >
+        <span><i aria-hidden="true" class="fa fa-users"></i></span>
+        <label>Gender:</label>
+        <input type="radio" name="gender" id="male" value="male">
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="female">
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="other" value="other">
+        <label for="other">Other</label>
+      </div>
+      <div class="input_field">
+        <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Email @gmail.com" required>
+      </div>
+      <div class="input_field">
+        <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+      </div>
+      <div class="input_field">
+        <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+        <label for="confirm_password">Re-type Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-type Password" required>
+      </div>
+      <div class="input_field checkbox_option" style="margin-top:20px;">
+        <input type="checkbox" id="agree_terms" required >
+        <label for="agree_terms" >I agree with terms and conditions</label>
+      </div>
+      <input class="button" type="submit" value="Sign Up" style="transition: 0.1s ease;cursor: pointer;
+      background: #16a085;border: none;border-radius: 2px;width: 120px;height: 32px;margin:5px 0 0 105px;"/>
+    </form>
+    <p style="margin:25px 0 0 50px;">Already have an account? <a href="{% url 'loginpage' %}" >Log in</a></p>
+  </div>
+
+  <div class="right" style=" background-image: url('{% static 'img/sign-bg.jpg' %}'); width:350px;">
+    <span class="signupwith">Sign up with<br />Social Network</span>
+    <button class="social-signin facebook" >Log in with Facebook</button>
+    <button class="social-signin twitter" >Log in with Twitter</button>
+    <button class="social-signin google" >Log in with Google+</button>
+  </div>
+ <div class="or">OR</div>
+</div>
+
+{% endblock %}
+

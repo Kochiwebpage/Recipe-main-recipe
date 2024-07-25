@@ -1,0 +1,9 @@
+{% load static %}
+
+<form method="post" action="{% url 'feedback_form' %}" style="margin:150px 0 0 500px;  width:500px;
+      border: 2px solid white ;box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); background-image: url('{% static 'img/2317128051.jpg' %}')">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="margin:0 0 10px 170px;background-color:pink;height:40px;border: 1px solid white ;
+    box-shadow: 4px 4px 8px black;">Submit </button>
+</form>

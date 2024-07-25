@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block title %} {{ i.name }} {% endblock %}
+
+{% block content %}
+<div class="recipe-detail">
+    <h2>{{ key3.name }}</h2>
+    <img src="{{ key3.image.url }}" alt="{{ recipe.name }}" style="border: 2px solid white;box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.3);">
+
+    <div class="details-container">
+
+        <table class="nav-detail">
+            <tr>
+                <th><i class="fa fa-utensils"></i>Food Type</th>
+                <th><i class="fa fa-clock"></i>Cooking Time</th>
+                <th>
+<!--                    <button class="btnSave" data-recipe-id="{{ key3.id }}"><i class="fa fa-bookmark"-->
+<!--                                                       style="font-size:25px;margin:0 0 0 150px ;"></i></button>-->
+                </th>
+            </tr>
+            <tr>
+                <td>{{ key3.food_type.food_type }}</td>
+                <td>{{ key3.cooking_time }} minutes</td>
+            </tr>
+        </table>
+
+
+        <h5>Ingredients:</h5>
+        <h6>{{ key3.ingredients|linebreaksbr }}</h6>
+        <br>
+
+        <h5>Instructions:</h5>
+        <h6>{{ key3.instructions|linebreaksbr }}</h6>
+
+    </div>
+
+</div>
+ <style>
+     @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+ </style>
+
+{% endblock %}

@@ -1,0 +1,835 @@
+*{
+    padding:0;
+    margin:0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background:rgb(35,38,58);
+}
+#body.dark-mode {
+    background: rgb(37, 35, 58);
+    color: white;
+}
+
+
+/* primary nav */
+
+.primary-nav {
+    position:sticky;
+    top:0px;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    display: flex;
+    padding: 5px 10px 0 0;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 4;
+    color:black;
+
+}
+.logo img {
+    width: 180px;
+}
+.menu{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    margin:0 0 0 300px;
+}
+.menu-list {
+    gap:30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.menu-list li {
+    margin-right: 20px;
+    font-size:18px;
+}
+.users{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    gap:30px;
+}
+
+.primary-nav .menu-list li a.active {
+    color: red;
+}
+.primary-nav a:hover {
+    color: #CD0747;
+}
+.primary-nav a{
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* dark-light mode */
+.primary-nav input[type="checkbox"]{
+    -webkit-appearance: none;
+    width:75px;
+    height:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-left:-7px;
+    border:2px solid black;
+    border-radius:20px;
+    color:white;
+    background-image: url("http://getwallpapers.com/wallpaper/full/8/4/d/924696-large-sunny-day-background-1920x1080-for-4k-monitor.jpg");
+    background-size: 85px 50px ;
+    background-repeat: no-repeat;
+    transition: background-position 0.5s ease;
+
+}
+.primary-nav input[type="checkbox"]:checked{
+    border-color:rgb(35,38,58);
+    color:rgb(35,38,58);
+}
+.primary-nav input::before{
+    content:'\f185';
+    font-size:18px;
+    font-family:"Font Awesome 6 free";
+    font-weight:500;
+    transform:translate(0);
+    transition:2s;
+    margin-right:48px;
+    color:#dc3000;
+}
+.primary-nav input:checked::before{
+    content:'\f186';
+    font-size:18px;
+    font-family:"Font Awesome 6 free";
+    font-weight:500;
+    transform:translate(50px);
+    transition:2s;
+    color:black;
+}
+
+.toggle{
+    font-size:20px;
+    display:none;
+}
+@media screen and (max-width:600px){
+.primary-nav{
+    display:block;
+    position:relative;
+    padding:25px 20px;
+}
+.menu,.users{
+    margin-top:15px;
+    display:none;
+}
+.menu.active, .toggle{
+    display:block;
+}
+.toggle{
+    position:absolute;
+    top:40px;
+    right:20px;
+}
+}
+
+/* Home hero-section */
+.hero-section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+    text-align: center;
+}
+.hero-content h3{
+    font-size:30px;
+}
+.hero-content h1{
+    padding:10px 0 0 300px;
+    color:white;
+    font-size:70px;
+}
+/* home-glow button */
+.glow-on {
+    width: 120px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin:40px 0 0 300px;
+}
+.glow-on:before {
+    color: #fff;
+    content: '';
+    background: linear-gradient(45deg, #ee2366, #ee2366, #ee2366, #ee2366, #00ffd5, #ee2366, #7a00ff, #ff00c8, #ee2366);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    animation: glowing 10s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+.glow-on:active {
+    outline: none;
+    color: #fff;
+}
+.glow-on:active:after {
+    background: transparent;
+}
+.glow-on:hover:before {
+    opacity: 1;
+}
+.glow-on:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+.btn-wrap {
+    outline: none;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+}
+.btn-wrap:hover,
+.btn-wrap:active,
+.btn-wrap:focus {
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+}
+.fa-angle-right {
+    color: #fff;
+    margin-left: 1px;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* about-section */
+#about .description {
+    padding: 100px 10px;
+    margin-left: 550px;
+}
+.section-header h2{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+.section-header h2 span{
+    color: #ee2366;
+    margin-left: 15px;
+    font-family: mv boli;
+    }
+/* about-image */
+.image-container {
+  position: relative;
+  width: 300px;
+  margin: 40px auto;
+}
+.circular-image{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+#image1 {
+  top: 5px;
+  right: 30%;
+  margin-left: -25px;
+}
+#image2 {
+  top: 150px;
+  left: 65%;
+  margin-left: -25px;
+}
+#image3 {
+  top: 340px;
+  right: 10%;
+  margin-left: -25px;
+}
+#image4 {
+  top: 300px;
+  right: 85%;
+  margin-left: -25px;
+}
+#image5 {
+  top: 100px;
+  right: 95%;
+  margin-left: -25px;
+}
+.circular-image:hover {
+  transform: rotate(90deg);
+  transition: transform 0.5s ease;
+}
+/* about_description */
+.description .btn-wrap{
+    background: #ee2360;
+    position: relative;
+    left: 1px;
+    bottom: 5px;
+    width: 140px;
+    cursor: pointer;
+    padding: 5px 20px;
+}
+.description .btn-wrap a{
+    color: #fff;
+    margin-right: 7px;
+    text-decoration: none;
+}
+.description .btn-wrap i{
+    color: #fff;
+    transition: 0.3s;
+}
+.description .btn-wrap:hover i{
+    transform: translateX(7px);
+}
+
+/*our team*/
+.team{
+    width: 100%;
+    height: 70vh;
+}
+.team h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    margin-bottom: 30px;
+}
+.team h1 span{
+    color: #ee2366;
+    margin-left: 15px;
+    font-family: mv boli;
+}
+.team h1 span::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #ee2360;
+    display: block;
+    position: relative;
+    bottom: 15px;
+}
+.team .team_box{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 10%;
+}
+.team .team_box .profile{
+    width: 370px;
+    height: 250px;
+    border-radius: 50%;
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    transition: 0.4s;
+}
+.team .team_box .profile:hover{
+    border-radius: 20px;
+    height: 320px;
+}
+.team .team_box .profile img{
+    width: 225px;
+    height: 225px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    z-index: 1;
+    transition: 0.4s;
+}
+.team .team_box .profile:hover img{
+    border-radius: 20px;
+    margin-top: -230px;
+}
+.team .team_box .profile .info{
+    position: absolute;
+    text-align: center;
+    top: 25%;
+    transition: 0.4s;
+}
+.team .team_box .profile:hover .info{
+    top: 55%;
+}
+.team .team_box .profile .info .name{
+    color: #ee2360;
+    margin-inline: 20px;
+}
+.team .team_box .profile .info .bio{
+    width: 95%;
+    text-align: center;
+    margin: 0 auto 1px auto;
+    font-size:15px;
+}
+.team .team_box .profile .info .team_icon i{
+    margin: 2px 5px 5px 0;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.team .team_box .profile .info .team_icon i:hover{
+    color: #ee2360;
+}
+
+/* Customer review*/
+.review{
+    width: 100%;
+    height: 75vh;
+    padding: 50px 0;
+}
+.review h1{
+    font-size: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.review h1 span{
+    margin-left: 15px;
+    color: #ee2366;
+    font-family: mv boli;
+}
+.review .review_box{
+    width: 95%;
+    margin: 70px auto;
+    display: flex;
+}
+.review .review_box .review_card{
+    width: 350px;
+    height: 400px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 5px 20px;
+    margin: 0 8px;
+}
+.review .review_box .review_card .review_profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.3s;
+}
+.review .review_box .review_card .review_profile img{
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 5px solid #cccccc;
+}
+.review .review_box .review_card .review_text{
+    text-align: center;
+}
+
+.review .review_box .review_card .review_text .name{
+    color: #000;
+    transition: 0.3s;
+}
+.review .review_box .review_card .review_text .review_icon{
+    color: #ee2366;
+    transition: 0.3s;
+}
+.review .review_box .review_card .review_text .review_social i{
+    margin: 5px 1px;
+    font-size: 15px;
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.review .review_box .review_card .review_text p{
+    text-align: center;
+    line-height: 22px;
+    transition: 0.3s;
+}
+
+/* footer */
+footer{
+    margin-top:150px;
+    background-color: black;
+}
+
+.footer-menu {
+    padding: 10px 0 0 0;
+    margin:0 0 0 0px ;
+}
+.footer-menu .logo{
+    width: 150px;
+    height:60x;
+}
+.footer-menu p{
+    color:white;
+}
+.fab {
+    font-size: 24px;
+    margin-right: 10px;
+    color:white;
+}
+.fab:hover{
+    color:#ee2366;
+}
+.footer-menu h4{
+    color:#f4a1cc;
+}
+.footer-menu a{
+    color:white;
+}
+.footer-menu a:hover{
+    color:#ee2366;
+}
+
+.h-plate{
+    margin-left:500px;
+}
+.h-plate p{
+    color:white;
+}
+.h-plate a{
+    color:#ee2366;
+}
+.h-plate a:hover{
+    color:#f54024;
+}
+
+
+/* Search- Recipe -hero1 */
+
+.hero1{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height:200px;
+    max-width: 1600px;
+}
+.image-banners{
+    height:250px;
+    padding:0 0 0 1200px ;
+    margin-top: -20px;
+}
+.search-wrapper {
+    color:white;
+    margin: -200px 0 0 550px;
+    position:relative;
+}
+.label-medium{
+    color:white;
+    margin:15px 0 0 540px;
+}
+.search-field{
+    height: 56px;
+    padding-inline:60px;
+    outline:none;
+    margin-left:10px;
+    background-color:transparent;
+}
+.search-submit{
+    position:absolute;
+    height:58px;
+    width:55px;
+    background-color: transparent;
+    color: white;
+}
+
+/*  Recipe hero2 */
+section .hero2{
+    max-width:1600px;
+    border:none;
+}
+.hero2 .card-header{
+    font-weight:bold;
+    background-color:#f4a1cc;
+    font-size:18px;
+}
+.hero2 a{
+    color:#ee2360;
+    font-weight:bold;
+    margin-top:4px;
+}
+.hero2 a:hover{
+    color:black;
+    font-weight:bold;
+}
+
+
+
+/*  Recipe hero3 */
+
+.hero3 {
+    margin:0 45px 0 0;
+}
+.hero3 .btn{
+    position: absolute;
+    margin: 190px 0 0 130px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size:25px;
+}
+.hero3 .card a{
+    color:#ee2360;
+    text-decoration: none;
+}
+
+/*  recipe-details */
+.recipe-detail h2{
+    margin-left:50%;
+    color:#f41782;
+    font-weight:bold;
+    font-family: 'Aclonica', sans-serif;
+}
+.recipe-detail img{
+    height:300px;
+    width:450px;
+}
+.recipe-detail p,h5,h6{
+    margin-left:35%;
+}
+.details-container{
+    margin-top: -300px;
+}
+.details-container h5 {
+    font-weight:bold;
+}
+.details-container h6{
+    font-weight:400;
+}
+.recipe-detail .nav-detail {
+    display: flex;
+    flex-direction: column;
+}
+.recipe-detail.nav-detail h5 {
+    margin-bottom: 8px;
+}
+.details-container .nav-detail {
+    width: 50%;
+    border-collapse: collapse;
+    margin:25px 0 30px 33%;
+}
+.details-container  .nav-detail th, .nav-detail td {
+    padding: 5px 0 0 45px;
+}
+
+.details-container .fa {
+    margin-right: 5px;
+}
+.details-container .share-save-buttons{
+    margin:-80px 350px 5px 0;
+    text-align: right;
+    font-size:35px;
+    border: none;
+}
+.details-container .share-save-buttons button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+.details-container .save-button i {
+        color: #808080;
+        background: none;
+        border: none;
+    }
+.details-container .save-button.saved i {
+        color: black;
+        background: none;
+        border: none;
+    }
+
+/* sign up */
+#signup-box {
+    position: relative;
+    margin: 20px auto ;
+    width: 730px;
+    height: 510px;
+    background: #FFF;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    display:flex;
+}
+#signup-box h1 {
+	background: url(https://www.slidebackground.com/uploads/frozen/purple-crystal-frozen-photo-wallpaper.jpg);
+  	background-clip: text;
+    -webkit-background-clip: text;
+	width: 50%;
+	text-align: center;
+	color: transparent;
+	font-weight: 900;
+	margin:0 0 20px 100px;
+}
+.signup .left  .input_field{
+    padding-top:5px;
+}
+.signup .left {
+    flex: 1;
+    padding: 20px;
+}
+
+.signup-box .right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    margin:0 200px 0 0;
+    padding: 20px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 2px 2px 0;
+    flex: 2;
+}
+.right .signupwith {
+    left: 250px;
+    display: block;
+    margin:40px 0 40px 0;
+    font-weight:500;
+    font-size: 28px;
+    right:50%;
+    background: url(https://tse2.mm.bing.net/th?id=OIP.2BGofH9Awr1iX2_nbK8S5QHaFj&pid=Api&P=0&h=180);
+  	background-clip: text;
+    -webkit-background-clip: text;
+	width: 100%;
+	text-align: center;
+	color: transparent;
+	font-weight: 900;
+}
+.or {
+    position: absolute;
+    top: 230px;
+    left: 360px;
+    width: 40px;
+    height: 40px;
+    background: #DDD;
+    border-radius: 50%;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.4);
+    line-height: 40px;
+    text-align: center;
+}
+button.social-signin {
+    text-align: center;
+    display: block;
+    margin:0 0 10px 0;
+    width: 220px;
+    height: 36px;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+button.social-signin.facebook {
+    background:#3b5998;
+    margin:80px 0 20px 65px;
+}
+button.social-signin.twitter {
+    background: #1da1f2;
+    margin:0 0 20px 65px;
+}
+button.social-signin.google {
+  background: #db4a39;
+  margin:0 0 20px 65px;
+}
+
+/* log in */
+
+#login-box {
+    position: relative;
+    margin: 20px auto ;
+    width: 570px;
+    height: 450px;
+    background: #FFF;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    display:flex;
+}
+#login-box h2 {
+	background: url(https://tse3.mm.bing.net/th?id=OIP.wB-ZZkfJXGugx_lJsrzYnQHaDu&pid=Api&P=0&h=180);
+  	background-clip: text;
+    -webkit-background-clip: text;
+	width: 100%;
+	text-align: center;
+	color: transparent;
+	font-weight: 800;
+}
+.left-login {
+    flex: 1;
+    padding: 20px;
+}
+.right-login{
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  flex: 1;
+}
+.right-login .loginwith {
+    left: 250px;
+    display: block;
+    margin:70px 0 40px 0;
+    font-weight:200;
+    font-size: 25px;
+    right:50%;
+    background: url(https://tse2.mm.bing.net/th?id=OIP.lghmuxthDvjLWgC5vM_cXgHaFe&pid=Api&P=0&h=180);
+  	background-clip: text;
+    -webkit-background-clip: text;
+	width: 100%;
+	text-align: center;
+	color: transparent;
+	font-weight: 900;
+}
+.right-login button.social-signin.facebook {
+  background:#3b5998;
+  margin:100px 0 15px 15px;
+  width:90%;
+}
+
+.right-login button.social-signin.twitter {
+  background: #1da1f2;
+  margin:0 0 15px 15px;
+  width:90%;
+}
+
+.right-login button.social-signin.google {
+  background: #db4a39;
+  margin:0 0 15px 15px;
+  width:90%;
+}
+.or-log {
+  position: absolute;
+  top: 200px;
+  left: 290px;
+  width: 30px;
+  height: 30px;
+  background: #DDD;
+  border-radius: 50%;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.4);
+  line-height: 30px;
+  text-align: center;
+}

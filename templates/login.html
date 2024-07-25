@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}Log In{% endblock %}
+{% block content %}
+
+<div id="login-box" class="login">
+  <div class="left-login">
+    <h2>Log In</h2><br>
+    <form action="login" method="POST" style="margin:10px 0;">
+      {% csrf_token %}
+      <div class="input_field">
+        <span><i aria-hidden="true" class="fa fa-user"></i></span>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Username" required>
+      </div> <br>
+      <div class="input_field">
+        <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+      </div>
+      <div class="group" style="margin-top:20px;">
+        <input id="check" type="checkbox" class="check" checked>
+        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+      </div>
+      <div class="modal-buttons" style="margin:10px 0;">
+        <a href="#" >Forgot your password?</a>
+        <button class="input-button" style=" cursor: pointer;
+              background: #16a085;border: none;border-radius: 2px;width: 80px;height: 32px; margin:0 0 0 10px;">Login</button>
+      </div>
+      <p class="sign-up" style="margin:35px 0;">Don't have an account? <a href="{% url 'signuppage' %}">Sign up </a>now</p>
+    </form>
+  </div>
+
+  <div class="right-login" style=" background-image: url('{% static 'img/sign2-bg.jpg' %}');">
+    <span class="loginwith">Log In with<br />Social Network</span>
+    <button class="social-signin facebook" >Log in with Facebook</button>
+    <button class="social-signin twitter" >Log in with Twitter</button>
+    <button class="social-signin google" >Log in with Google+</button>
+  </div>
+ <div class="or-log">OR</div>
+</div>
+
+{% endblock %}
+

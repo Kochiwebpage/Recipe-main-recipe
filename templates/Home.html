@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+
+{% block content %}
+<div class="hero-section" style="background-image: url('{% static 'img/background1.jpg' %}')">
+    <div class="hero-content">
+        <h3 style="padding:170px 0 0 100px;color:white">Are You Hungry? </h3>
+        <h1>Don't Wait</h1>
+        <h3 style="padding:10px 0 0 100px;color:#CD0747;">Let start to Cook</h3>
+        <button class="glow-on" type="button">
+            <a href="{% url 'recipepage' %}" class="btn-wrap">Get Start</a>
+            <i class="fa-solid fa-angle-right"></i>
+        </button>
+
+    </div>
+</div>
+
+{% include "about.html" %}
+{% include "review.html" %}
+
+
+
+
+
+
+{% endblock %}

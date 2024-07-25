@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} Recipe {% endblock %}
+
+{% block content %}
+<section class="hero1" aria-label="banners" style="background-image: url('{% static 'img/bg-search.jpg' %}')">
+        <div class="banners-c">
+            <img src="static/img/Search2.png" alt="image" class="image-banners" id="image">
+            <div class="search-wrapper" data-search-form>
+                <h3 class="display-large" style="margin-bottom:5px;margin-left:10px;">What would you like to cook?</h3>
+                <span class="fa fa-cutlery leading-icon" aria-hidden="true"></span>
+                <input type="search" name="search" aria-label="Search recipes" placeholder="Search recipes...."
+                       class="search-field body-medium" data-search-field style="color:white;">
+                <button class="search-submit" aria-label="Submit" data-search-btn>
+                    <span class="fa fa-search" aria-hidden="true"></span>
+                </button>
+            </div>
+            <p class="label-medium">
+                Search any recipe e.g: briyani, fish curry, pizza, pasta...
+            </p>
+        </div>
+</section>
+
+<section class="hero2">
+    <div class="col-md-12" style=" margin: 0 auto;">
+        <div class="card"  style="max-width: 100%;" >
+            <nav class="nav">
+                <div class="card-header">Recipes</div>
+                <a class="nav-link" href="{% url 'recipepage' %}">ALL</a>
+                {% for i in key1 %}
+                <a style="margin-left:30px;" class="nav-link" href="{% url 'recipepage' %}?List={{i}}">{{i}}</a>
+                {% endfor %}
+                {% for food_type in key4 %}
+                    <a style="margin-left:30px;" class="nav-link" href="{% url 'recipepage' %}?FoodType={{ food_type }}">{{ food_type.food_type }}</a>
+                {% endfor %}
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="hero3">
+<div class="col-md-11">
+    <div class="row" >
+        {% for i in key2 %}
+            <div class="col-md-2" >
+                <div class="card" style="width: 18rem; margin: 15px -5px 0 55px; height: 17rem; border: none;">
+                    <a href="{% url 'detailspage' i.id %}">
+                    <img class="card-img-top" src="{{ i.image.url }}" alt="card image cap" style="height: 9rem;
+                     width: 12.9rem;border: 2px solid white;box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);">
+                    </a>
+                    <div class="card-body" style="margin:0 0 0 -15px ;">
+                        <p style="font-size: 15px; font-weight: bold;">{{ i.name }}</p>
+
+                        <p style="font-size: 14px; color: black;">Food Type: {{ i.food_type.food_type }}</p>
+                    </div>
+                        <button class="btn btnSave" data-recipe-id="{{ i.id }}" data-saved="{{ i.is_saved }}" type="button" onclick="saveRecipe({{ i.id }})">
+                            {% if request.user in i.saved_by.all %}
+                            <i class="fa fa-bookmark" style="color:red;"></i>
+                            {% else %}
+                            <i class="fa fa-bookmark" style="color:black;"></i>
+                            {% endif %}
+                        </button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</section>
+
+<div id="searchResults">
+
+</div>
+{% include "about.html" %}
+{% include "review.html" %}
+
+
+{% endblock %}
